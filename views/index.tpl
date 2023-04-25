@@ -24,7 +24,7 @@
 
 <body>
 
-  <!-- Navigation -->
+<!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
     <div class="container">
       <a class="navbar-brand" href="#">Cool App</a>
@@ -39,11 +39,25 @@
   <!-- Page Content -->
   <div class="container">
     <div class="row">
-            <div class="col-3 sidebar">
+              <div class="col-3 sidebar">
             <form  action="/" method="post">
-              </br>
-              <button type="submit" class = "btn btn-default submit">Submit</button>
-            </form>
+                <div class="form-group form-control-sm">
+                    <label for="Store">Store</label>
+                    <select class="form-control" id="Store" name="Store" method="post">
+                      % for i in range(1, 4):
+                        % if store==i:
+                            <option selected>{{i}}</option>
+                        % else:
+                            <option>{{i}}</option>
+                        % end
+                      % end
+                    </select>
+                </div>
+            <br>
+            <br>
+            <button type="submit" class = "btn btn-default submit">Submit</button>
+             <br>
+             </form>
         </div>
       <div class="col-9" class = "content">
       </div>
