@@ -24,7 +24,7 @@
 
 <body>
 
-<!-- Navigation -->
+  <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
     <div class="container">
       <a class="navbar-brand" href="#">Cool App</a>
@@ -55,12 +55,60 @@
                 </div>
             <br>
             <br>
+                <div class="form-group form-control-sm">
+                    <label for="Dept">Department</label>
+                    <select class="form-control" id="Dept" name="Dept" method="post">
+                      % for i in range(1, 4):
+                        % if departament==i:
+                            <option selected>{{i}}</option>
+                        % else:
+                            <option>{{i}}</option>
+                        % end
+                      % end
+                    </select>
+                </div>
+             <br>
+             <br>
+                <div class="form-group form-control-sm">
+                    <label for="Vars">Variables</label>
+                    <select multiple class="form-control" id="Vars" name="Vars" method="post">
+                      % for var in wszystkie_zmienne:
+                        % if var in wybrane_zmienne:
+                            <option selected>{{var}}</option>
+                        % else:
+                            <option>{{var}}</option>
+                        % end
+                      % end
+                    </select>
+                </div>
+             <br>
+             <br>
+             <br>
+             <br>
+             <br>
             <button type="submit" class = "btn btn-default submit">Submit</button>
              <br>
              </form>
         </div>
       <div class="col-9" class = "content">
-      </div>
+          {{naglowek}}
+          <center>
+            <table border="1">
+              <tr>
+            % for var in wybrane_zmienne:
+                <th>{{var}}</th>
+            % end
+              </tr>
+            % for wiersz in dane:
+              <tr>
+                % for wartosc in wiersz:
+                <td>{{wartosc}}</td>
+                % end
+              </tr>
+            % end
+            </table>
+		  </center>
+    </div>
     </div>
     <!-- Page Footer -->
     <div class="row">
